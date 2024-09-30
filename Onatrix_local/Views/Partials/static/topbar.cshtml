@@ -1,0 +1,14 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeAdress = settings?.Value<string>("officeAdress") ?? "";
+}
+
+<div id="topbar" class="bg-primary">
+    <div class="container">
+        <div class="adress">@officeAdress</div>
+    </div>
+</div>
