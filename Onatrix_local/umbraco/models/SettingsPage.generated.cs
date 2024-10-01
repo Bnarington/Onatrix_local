@@ -96,5 +96,13 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		[ImplementPropertyType("siteTagline")]
 		public virtual string SiteTagline => this.Value<string>(_publishedValueFallback, "siteTagline");
+
+		///<summary>
+		/// Social Media Platforms
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "14.2.0+1b21caa")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("socialMediaPlatforms")]
+		public virtual global::Umbraco.Cms.Core.Models.Blocks.BlockListModel SocialMediaPlatforms => this.Value<global::Umbraco.Cms.Core.Models.Blocks.BlockListModel>(_publishedValueFallback, "socialMediaPlatforms");
 	}
 }

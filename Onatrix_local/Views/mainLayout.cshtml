@@ -25,11 +25,11 @@
 	<body>
 		<div class="wrapper">
 			@await Html.PartialAsync("partials/static/topbar.cshtml")
-			<header></header>
+			@await Html.PartialAsync("partials/static/header.cshtml")
 			<main>
 				@RenderBody()
 			</main>
-			<footer></footer>
+			@await Html.PartialAsync("partials/static/footer.cshtml")
 		</div>
 		<script src="/scripts/main.js"></script>
 	</body>

@@ -4,12 +4,12 @@
 @{
     var rootContents = UmbracoHelper.ContentAtRoot();
     var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
-    var officeAdress = settings?.Value<string>("officeAdress") ?? "";
+    var siteName = settings?.Value<string>("siteName") ?? "";
 }
 
-<div id="topbar" class="bg-primary">
+<footer class="bg-dark">
     <div class="container">
-        <div class="adress">@officeAdress</div>
-        @await Html.PartialAsync("socialmedia.cshtml")
+        <p class="copyright-information">© @DateTime.Now.Year @siteName All Right Reserved. </p>
+        <p class="credits">Credits to <a href="https://themeforest.net/user/themesflat/portfolio">Themesflat</a></p>
     </div>
-</div>
+</footer>

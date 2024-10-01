@@ -226,3 +226,48 @@ p {
 .spacing-bottom{
     margin-bottom: 1em;
 }
+
+header {
+  height: 5rem;
+    box-shadow: 0.2px black;
+}
+header .container {
+
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+@media (min-width: 768px) {
+  header .hidewhenbig {
+    display: none;
+  }
+}
+
+#topbar .container {
+  height: 3rem;
+  flex-shrink: 0;
+}
+#topbar .adress {
+  font-size: 0.8rem;
+  padding-top: 0.8rem;
+}
+
+main {
+    min-height: 100vh;
+}
+
+footer {
+    height: 4rem;
+    .container {
+        height: 4rem;
+        display: flex;
+        flex-direction: row;
+        color: #FFF;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+    }
+}
