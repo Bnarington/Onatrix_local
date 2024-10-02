@@ -22,12 +22,11 @@
 			var thumbnail = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
 			var description = item?.Value<string>("serviceDescription") ?? "";
 
-			<a href="@item.Url()">
+			<a href="@item.Url()" class="service-card">
 				<div class="item">
 					<h4>@item.Name()</h4>
 				</div>
-				<div class="body">
-					<img src="@thumbnail" alt="@item.Name()">
+				<div class="body" style="background: url('@thumbnail') lightgray 50% / cover no-repeat">
 				</div>
 				<div class="footer">
 					<p>@description</p>

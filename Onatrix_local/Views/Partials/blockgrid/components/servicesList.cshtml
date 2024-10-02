@@ -5,23 +5,27 @@
 @{
 	var selection = Umbraco.Content(Guid.Parse("fd90399e-d230-4a63-975e-85c008e801aa"))
     .ChildrenOfType("servicesItemTemplate")
-    .Where(x => x.IsVisible())
-    .OrderBy(x => x.Id);
-
-	var projectImage = Model.Content.Value<IPublishedContent>("serviceThumbnail")?.Url() ?? null;
-    var projectTitle = Model?.Content.Value<string>("serviceTitle") ?? "";
-	var projectDescription = Model?.Content.Value<string>("serviceDescription") ?? "";	
+    .Where(x => x.IsVisible());
 }
 
-<ul>
-	@foreach (var item in selection)
-	{
-		<li class="projectlist">
-			<a href="@item.Url()">
-				<h3>@item.serviceTitle</h3>
-				<img src="@projectImage" alt="@projectTitle">
-				<p>@projectDescription</p>				
-			</a>
-		</li>
-	}
-</ul>
+<section id="our-services">
+	<div class="container">
+		<div class="services">
+		@foreach (var item in selection) {
+			var thumbnail = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+			var description = item?.Value<string>("serviceDescription") ?? "";
+
+			<a href="@item.Url()" class="service-card">
+				<div class="item">
+					<h4>@item.Name()</h4>
+				</div>
+				<div class="body" style="background: url('@thumbnail') lightgray 50% / cover no-repeat">
+				</div>
+				<div class="footer">
+					<p>@description</p>
+				</div>
+			</a> 
+		}
+		</div>
+	</div>
+</section>
