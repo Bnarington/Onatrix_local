@@ -43,6 +43,13 @@ section .container {
     padding-bottom: 1rem;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
@@ -318,4 +325,8 @@ footer .container {
     text-align: left;
     padding: 1rem;
     color: black;
+}
+
+#trust img {
+    margin-top: 20px;
 }
