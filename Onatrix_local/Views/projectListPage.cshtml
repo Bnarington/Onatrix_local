@@ -19,7 +19,7 @@
 
 		<div class="projects">
 		@foreach (var item in selection) {
-			var thumbnail = item?.Value<IPublishedContent>("thumbnailImage")?.Url() ?? "";
+			var thumbnail = item?.Value<IPublishedContent>("thumbnailImage")!.Url() ?? "";
 			var description = item?.Value<string>("projectDescription") ?? "";
 
 			<a href="@item.Url()" class="service-card">
@@ -35,5 +35,9 @@
 			</a> 
 		}
 		</div>
+
+		
 	</div>
 </section>
+
+@await Html.PartialAsync("partials/static/adressInfo.cshtml")

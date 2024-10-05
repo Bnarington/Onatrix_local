@@ -227,8 +227,14 @@ p {
 	}
 }
 
+#hero-slider {
+    height: 34rem;
+    padding-top: 0px;
+}
+
 .background-image {
-    background-size: cover;
+    background-size: auto;
+    background-position: 50%;
     background-repeat: no-repeat;
 }
 
@@ -329,4 +335,57 @@ footer .container {
 
 #trust img {
     margin-top: 20px;
+}
+
+#adress-info {
+  position: relative;
+  height: 44rem;
+}
+#adress-info .container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 44rem;
+}
+#adress-info img {
+  position: absolute;
+  left: 40px;
+  bottom: 0px;
+}
+#adress-info .adress-infobox {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+}
+#adress-info .adress-infobox p {
+  padding-bottom: 0;
+}
+#adress-info .adress-infobox .info-itembox {
+  padding-bottom: 1rem;
+}
+#adress-info .adress-infobox .info-itembox .thicc {
+  font-weight: 600;
+}
+
+#our-projects .container .projects .project-card {
+  width: 30rem;
+  height: 30rem;
+  flex-shrink: 0;
+}
+#our-projects .container .projects .project-card .body {
+  position: relative;
+  width: 30rem;
+  height: 30rem;
+}
+#our-projects .container .projects .project-card .footer {
+  position: absolute;
+  color: #d9c3a9;
+  bottom: 5px;
+  width: 30rem;
+  height: 5rem;
+  background-color: rgba(79, 89, 85, 0.5);
+  transition: background-color 0.3s ease;
+}
+#our-projects .container .projects .project-card:hover .footer {
+  background-color: rgb(79, 89, 85);
 }
