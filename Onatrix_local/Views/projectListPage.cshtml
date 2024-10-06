@@ -24,11 +24,6 @@
 
 <section id="our-projects">
 	<div class="container">
-		@if (!string.IsNullOrEmpty(Model.Value("projectSubheader").ToString())) {
-			<div class="headline">
-				<h2 class="title">@Model.Value("projectSubheader")</h2>
-			</div>
-		}
 
 		<div class="projects">
 		@foreach (var item in selection) {

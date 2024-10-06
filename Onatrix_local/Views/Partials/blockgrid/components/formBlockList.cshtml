@@ -1,0 +1,15 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+    var formBlocks = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("formList");
+}
+
+<form onsubmit="" novalidate>
+    @foreach (var block in formBlocks)
+    {
+        var content = block.Content;
+        @Html.Partial("blocklist/components/" + content.ContentType.Alias, block)
+    }
+</form>

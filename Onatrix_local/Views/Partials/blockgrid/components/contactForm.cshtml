@@ -1,0 +1,25 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+<section id="home-contact-form">
+    <div class="container">
+        <div>
+            <h2>Request a call back</h2>
+        </div>
+        <p>Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat</p>
+
+        <form onsubmit="" method="post">
+            <input id="name" name="name" type="text" placeholder="Name" class="form-input" >
+            <input id="email" name="email" type="email" placeholder="Email address" class="form-input" >
+            <input id="phone" name="phone" type="tel" placeholder="Phone" class="form-input" >
+            <select id="options" name="options" class="form-input">
+                <option value="Advice">Financial Advice</option>
+                <option value="Advice">Banking</option>
+                <option value="Advice">General Question</option>
+            </select>
+            <button type="submit" class="btn-secondary">Submit</button>
+        </form>
+    </div>
+</section>
+            
