@@ -1,0 +1,43 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+ 
+@{
+	var employee = Model.Content.Value<IEnumerable<Umbraco.Cms.Core.Models.Blocks.BlockListItem>>("employeeBlocklist");
+}
+
+<section id="our-employee">
+    <div class="container">
+        <div class="employee-row large-row">
+            @foreach (var item in employee.Take(3)) {
+                var image = item?.Content.Value<IPublishedContent>("employeeImage")?.Url() ?? "";
+                var title = item?.Content.Value<string>("employeeTitle") ?? "";
+                var name = item?.Content.Value<string>("employeeName") ?? "";
+
+                <div class="employee-card">
+                    <div class="body" style="background: url('@image') lightgray 50% / cover no-repeat"></div>
+                    <div class="footer">
+                        <p>@name</p>
+                        <p>@title</p>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="employee-row small-row">
+            @foreach (var item in employee.Skip(3)) {
+                var image = item?.Content.Value<IPublishedContent>("employeeImage")?.Url() ?? "";
+                var title = item?.Content.Value<string>("employeeTitle") ?? "";
+                var name = item?.Content.Value<string>("employeeName") ?? "";
+
+                <div class="employee-card">
+                    <div class="body" style="background: url('@image') lightgray 50% / cover no-repeat"></div>
+                    <div class="footer">
+                        <p>@name</p>
+                        <p>@title</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

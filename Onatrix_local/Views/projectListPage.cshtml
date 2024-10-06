@@ -1,5 +1,6 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+
 @{
 	Layout = "mainLayout.cshtml";
 	ViewBag.Title = Model?.Value("pagetitle") ?? null;
@@ -7,6 +8,18 @@
 	var selection = Umbraco.Content(Guid.Parse("07bc907a-5e08-4b56-888d-d365d905ccd7"))
     .ChildrenOfType("projectItemTemplate")
     .Where(x => x.IsVisible());
+
+	var allTags = new HashSet<string>();
+
+	foreach (var item in selection) {
+		var tags = item?.Value<IEnumerable<string>>("pageTags");
+		if (tags != null) {
+			foreach (var tag in tags)
+			{
+				allTags.Add(tag);
+			}
+		}
+	}
 }
 
 <section id="our-projects">
@@ -21,22 +34,31 @@
 		@foreach (var item in selection) {
 			var thumbnail = item?.Value<IPublishedContent>("thumbnailImage")!.Url() ?? "";
 			var description = item?.Value<string>("projectDescription") ?? "";
+			var createdDate = item.CreateDate;
 
-			<a href="@item.Url()" class="service-card">
-				<div class="item">
-					<h4>@item.Name()</h4>
-				</div>
+			<a href="@item.Url()" class="project-card">
 				<div class="body">
 					<img src="@thumbnail" alt="@description">
 				</div>
-				<div class="footer">
+				<div class="item">
+					<h4>@item.Name()</h4>
+					<p class="date"><i class="fa-sharp fa-regular fa-calendar-days"></i> @createdDate.ToString("MMMM dd, yyyy")</p>
 					<p>@description</p>
+					<p class="read-more">Read More <i class="fa-regular fa-arrow-right"></i> </p>
 				</div>
 			</a> 
 		}
-		</div>
+		</div>		
+	</div>
 
-		
+	<div id="project-tags">
+		<h4>Tags</h4>
+		<ul>
+			@foreach(var tag in allTags)
+			{
+				<li>@tag</li>
+			}
+		</ul>
 	</div>
 </section>
 

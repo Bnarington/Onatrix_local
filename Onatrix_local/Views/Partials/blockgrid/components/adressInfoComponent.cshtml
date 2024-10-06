@@ -1,0 +1,34 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<Umbraco.Cms.Core.Models.Blocks.BlockGridItem>;
+@inject Umbraco.Cms.Web.Common.UmbracoHelper UmbracoHelper
+@{
+    var rootContents = UmbracoHelper.ContentAtRoot();
+    var settings = rootContents?.FirstOrDefault(x => x.ContentType.Alias == "settingsPage") ?? null;
+    var officeAdress = settings?.Value<string>("officeAdress") ?? "";
+    var officePhonenumber = settings?.Value<string>("officePhonenumber") ?? "";
+    var officeEmail = settings?.Value<string>("officeEmail") ?? "";
+    var officeImage = settings?.Value<IPublishedContent>("officeImage")!.Url() ?? null;
+}
+
+<section id="adress-info" class="bg-gray">
+    <div class="container">
+        <div class="man-image">
+            <img src="@officeImage" alt="Happy Office Man">
+        </div>
+        <div class="adress-infobox">
+            <h4>Let us know about your next project</h4>
+            <div class="info-itembox">
+                <p class="thicc"><i class="fa-regular fa-location-dot"></i> Office Location</p>
+                <p class="office-info">@officeAdress</p>
+            </div>
+            <div class="info-itembox">
+                <p class="thicc"><i class="fa-regular fa-phone"></i> Phone number</p>
+                <p class="office-info">@officePhonenumber</p>
+            </div>
+            <div class="info-itembox">
+                <p class="thicc"><i class="fa-regular fa-envelope"></i> E-mail address</p>
+                <p class="office-info">@officeEmail</p>
+            </div>
+        </div>
+    </div>  
+</section>

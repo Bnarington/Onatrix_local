@@ -367,25 +367,156 @@ footer .container {
   font-weight: 600;
 }
 
-#our-projects .container .projects .project-card {
-  width: 30rem;
-  height: 30rem;
-  flex-shrink: 0;
-}
-#our-projects .container .projects .project-card .body {
+#our-projects {
   position: relative;
-  width: 30rem;
-  height: 30rem;
 }
-#our-projects .container .projects .project-card .footer {
+#our-projects .container .projects {
+  display: flex;
+  flex-direction: column;
+}
+#our-projects .container .projects .project-card {
+  display: flex;
+  flex-direction: row;
+  color: #4f5955;
+  width: 75%;
+}
+#our-projects .container .projects .project-card .item {
+  margin-left: 2rem;
+}
+#our-projects .container .projects .project-card .item .date {
+  color: lightgray;
+}
+#our-projects #project-tags {
   position: absolute;
-  color: #d9c3a9;
-  bottom: 5px;
-  width: 30rem;
-  height: 5rem;
-  background-color: rgba(79, 89, 85, 0.5);
+  top: 5rem;
+  right: 150px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  max-width: 200px;  
+}
+#our-projects #project-tags ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+#our-projects #project-tags li {
+  border-radius: 62rem;
+  border: 1px solid #E6E6E6;
+  padding: 0.625rem 1rem;
+  margin: 0.2rem;
+  list-style: none;
   transition: background-color 0.3s ease;
 }
-#our-projects .container .projects .project-card:hover .footer {
-  background-color: rgb(79, 89, 85);
+
+#our-projects #project-tags li:hover {
+    background-color: #f0f0f0;
 }
+
+.image-slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-slider .slides {
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+}
+
+.image-slider .slides img:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+#about-trust .background-image {
+  background-position: 120rem;
+  background-size: auto;
+
+}
+
+#our-employee {
+    padding: 20px;
+}
+
+.employee-row {
+    display: flex;
+    gap: 20px;
+}
+
+/* Styling for the large row with 3 cards */
+.large-row {
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    .employee-card {
+        flex: 1; /* Each card takes equal space */
+        max-width: 32%; /* Adjust to ensure 3 cards fit within the row */
+    }
+
+    .employee-card .body {
+        height: 400px; /* Larger size for top row */
+    }
+}
+
+/* Styling for the small row with 4 cards */
+.small-row {
+    justify-content: space-between;
+
+    .employee-card {
+        flex: 1; /* Each card takes equal space */
+        max-width: 23%; /* Adjust to ensure 4 cards fit within the row */
+    }
+
+    .employee-card .body {
+        height: 250px; /* Smaller size for bottom row */
+    }
+}
+
+.employee-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.employee-card .body {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.employee-card .footer {
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent background for text */
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .employee-row {
+        flex-direction: column; /* Stack cards vertically */
+        gap: 10px;
+    }
+
+    .large-row .employee-card, 
+    .small-row .employee-card {
+        max-width: 100%; /* Full width for stacked cards */
+    }
+
+    .employee-card .body {
+        height: 300px; /* Adjust card height for smaller screens */
+    }
+}
+
+
+
